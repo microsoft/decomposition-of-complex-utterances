@@ -1,0 +1,127 @@
+id	category	utterance	plan
+isPersonOrganizerFalse	p2	Is Kim the organizer of Standup?	"theEvent(called(""Standup"")).organizerIs(thePerson(""Kim""))"
+d249annotator1_0	decomp	Find the event with Hao this week	theEvent(with_("Hao") and queryAt(`this`[Interval[Date]] and isWeek))
+Query at date and time interval	p0	What do I have tomorrow morning?	findEvents(queryAt(morning on tomorrow))
+restOfDayEvents	p0	What do I have for the rest of the day going on ?	findEvents(queryAt(restOfToday))
+forwardSalientEvent	p2	When is my next meeting with Jesse?	"theEvent(next[Event] and with_(""Jesse"")).start"
+Query - set multiple - subject and date	p1	what meetings do I have?	findEvents0
+queryBySubject2	p0	What's on my calendar named Business talks?	"findEvents(called(""Business talks""))"
+eventThisTimeOfDay	p0	What do I have tomorrow evening?	findEvents(queryAt(evening on tomorrow))
+Create Year	p0	Schedule an event in the year 2023.	createEvent(createAt(yearIs(2023)))
+findPersonSelf	p0	Who am I?	me
+multipleEventsEnd2		When does my meeting with Brad end?	"theEvent(with_(""Brad"")).end"
+Query at date and time interval	p0	What do I have tomorrow between 9 and 11 am?	findEvents(queryAt(timeInterval(9.oclock, 11.am) on tomorrow))
+getPersonFromAttendeeExample		Am I invited to the company fireside chat?	"theEvent(called(""company fireside chat"")).attendees.all.map(a => getPersonFromAttendee(a)).contains(me)"
+7 Create with date time in eyes off	p0	Make an event next Tuesday at 12 am	createEvent(createAt(12.am on (next[Date] /& Tuesday)))
+firstEventTomorrow	p2	What is my first event tomorrow?	theEvent(nth[Event](1) and queryAt(tomorrow))
+eventOnADateAndTime	p0	What do I have on Saturday at 10 am?	findEvents(queryAt(10.am on Saturday))
+onlineMeetingProvider	p2	What is the online meeting provider for Virtual Standup?	"theEvent(called(""Virtual Standup"")).onlineMeetingInfo.get.provider"
+noEventsSpecificMonth	p0	Do I have anything in September?	findEvents(queryAt(monthOf(September))).nonEmpty
+eventWithDayAndAttendee	p0	What do I have on my schedule on Sunday with Kim.	"findEvents(queryAt(Sunday) and with_(""Kim""))"
+	p0	Schedule a meeting today at 3 pm called Let's Meet!	"createEvent(createAt(3.pm on today) and called(""Let's Meet!""))"
+Query at date interval	p0	What do I have from July 8th to July 12th?	findEvents(queryAt(dateInterval(July /& 8, July /& 12)))
+updateAttendeeToSalientEvent	p1	What do I have tomorrow?	findEvents(queryAt(tomorrow))
+sayPersonEmptyPhoneEyesOff	p0	What is Jesse's phone number?	"thePerson(""Jesse"").phoneNumber"
+basicForwardMail-2	p1	Forward that email.	forwardEmail(messageIdIs(theEmail(that[Email]).id))
+twoAttendeesMultipleEvents		How many people are invited to my SM Leads meeting tomorrow?	"theEvent(called(""SM Leads meeting"") and queryAt(tomorrow)).attendees.otherPeople.size"
+queryBySubject2	p0	Looks for events named earnings calls	"findEvents(called(""earnings calls""))"
+eventStartLastAndPast	p2	When was my last event?	theEvent(last[Event] and isPast).start
+	p0	Create a coffee talk last Thursday at 10 am	"createEvent(called(""coffee talk"") and createAt(10.am on (last[Date] /& Thursday)))"
+QueryOnDateWeek	p0	What do I have in the week of 20th?	findEvents(queryAt(theDate(20).weekInterval))
+createEventAfterTimeOnDate	p0	Schedule a meeting after 9 am tomorrow.	createEvent(createAt(after(9.am) on tomorrow))
+Create - change multiple - attendee and DOW	p0	create a meeting with David today	"createEvent(with_(""David"") and createAt(today))"
+calling3PeopleOneshot	p1	Call Bryan, Kelly and David.	"call(callWith(""Bryan"") and callWith(""Kelly"") and callWith(""David""))"
+sendMailWithBodyEyesOff	p0	Send an email saying I will be late.	"createEmail(messageBodyIs(""I will be late""))"
+findFile-3	p0	Find my deck	"findFile(withType(""deck""))"
+queryEventAfterTimeOnDate	p0	What's on my schedule after 9 am on August 2.	findEvents(queryAt(after(9.am) on August /& 2))
+	p0	Schedule a meeting with Julia today at 2 pm called let's meet!	"createEvent((with_(""Julia"") and createAt(2.pm on today)) and called(""let's meet!""))"
+nthEventOnDay	p0	What is my third event on Monday?	theEvent(nth[Event](3) and queryAt(Monday))
+multiEventsCurrentUserIsOrganizer		Am I organizer of Team meeting?	"theEvent(called(""Team meeting"")).organizerIs(me)"
+whatDateYesterday	p2	What was yesterday?	yesterday
+d18annotator2_2	decomp	Update each event in the list s2 to be called "project sync"	s2.map(x => modifyEvent(x, called("project sync")))
+AfterAndRightAfterNoEvent	p0	What do I have right after yoga tomorrow	"findEvents(rightAfter(theEvent(called(""yoga""))) and queryAt(tomorrow))"
+emailAttendees	p1	I would like to create an event with everyone who is on that email	createEvent(with_(theEmail(that[Email]).allRecipients))
+moveSalientByTimeEyesOff	p1	Do I have any meetings tomorrow at 10 am?	findEvents(queryAt(10.am on tomorrow)).nonEmpty
+5 Create with date time in eyes off	p0	Make an event on September 7th 2017 at 10 pm	createEvent(createAt(10.pm on ((September /& 7) /& yearIs(2017))))
+Create ends at MM-DD	p0	Create a meeting ending at 5/30	createEvent(endsAt(month(5) /& 30))
+Query at time resolve tomorrow	p0	What do I have starting at 9 am?	findEvents(startsAt(9.am))
+IsTeamsMeeting	p2	Is my next meeting a Teams meeting?	theEvent(next[Event]).isTeamsMeeting
+whatDateToday	p2	What's today?	today
+JoinDoNotConfirm	p1	Join the product stand up meeting	"joinEvent(theEvent(called(""product stand up meeting"")))"
+queryBySubject1EyesOff	p0	Tell me about haircut appointments.	"findEvents(called(""haircut appointments""))"
+onlineMeetingConferenceId	p2	What is the online meeting conference id for Virtual Standup?	"theEvent(called(""Virtual Standup"")).onlineMeetingInfo.get.conferenceId"
+createLunchTimeAtLocation2	p1	Make some time for me to go to Aceituna for lunch	"createEvent(locatedAt(locationNamed(""Aceituna"")) and createAt(lunchTime))"
+calling2PeopleOneshot	p1	Call Bryan and Kelly	"call(callWith(""Bryan"") and callWith(""Kelly""))"
+BeforeAndRightBeforeSingleEvent	p0	What do I have right before walk	"findEvents(rightBefore(theEvent(called(""walk""))))"
+2 Create with start date time and duration Eyes-off	p0	Create a 15 minutes meeting starting tomorrow at 11 am	createEvent(lastsFor(15.minutes) and startsAt(11.am on tomorrow))
+d2annotator1_0	decomp	Get User's direct reports	thePerson(me).directReports
+joinSalientMeeting	p1	Join this	joinEvent(theEvent(`this`[Event]))
+eventResponse5	p2	Accept my invite to 'Team Meeting'.	"respond(theEvent(called(""Team Meeting"")), withResponse(ResponseStatusType.accepted))"
+Create - change one and add one attendee	p0	Create a meeting with Jesse called coffee	"createEvent((with_(""Jesse"")) and called(""coffee""))"
+	p0	Schedule a walk at Vasona Park at 5pm tomorrow	"createEvent(called(""walk"") and locatedAt(locationNamed(""Vasona Park"")) and createAt(5.pm on tomorrow))"
+	p0	Make me a 60 minute long walk for this morning	"createEvent((lastsFor(60.minutes) and called(""walk"")) and createAt(morning on `this`[Date]))"
+multipleEventsOrganizerQuery		Am I organizer of Standup?	"theEvent(called(""Standup"")).organizerIs(me)"
+setStatusOutOfOfficeWithMessage	p2	Set my status to out of office and say I'm outside	"setStatus(setStatusToWithMessage(UserStatus.OutOfOffice, ""I'm outside""))"
+02 - create event and then clobber start - unspecified	p0	Schedule a meeting	createEvent0
+multipleEventsEnd0		When does my event called Team meeting end?	"theEvent(called(""Team meeting"")).end"
+videoCallMyManagerOneshot	p1	video call to my manager	call(modeIs(CallMode.Video) and callWith(me.manager))
+d3annotator2_2	decomp	Update the subject of each event in (list s1)[the list] to "1/1 with (corresponding person)"	s1.map(x => modifyEvent(x, called("1:1 with " + x.attendees.otherPeople.head.nameAndEmail.name.get)))
+nextEventAttendees	p2	Who has accepted my next event?	theEvent(next[Event]).attendees.withResponse(ResponseStatusType.accepted)
+forwardSalientEvent	p2	Forward this to Leah and Damon	"forwardEvent(theEvent(`this`[Event]), sendTo(""Leah"") and sendTo(""Damon""))"
+setStatusAppearOfflineSingle	p2	Set my status to appear offline	setStatus(setStatusTo(UserStatus.Offline))
+d74annotator1_1	decomp	If there are more than 5 events in the list s1, decline the longest scheduled event	Option.when(s1.size > 5){respond(max(s1, (x => x.duration)), withResponse(ResponseStatusType.declined))}
+queryEventBeforeTimeOnDate	p0	What's on my schedule before 2 pm on September 9.	findEvents(queryAt(before(2.pm) on September /& 9))
+openWorkingFileHavingTypeOneShot	p2	Open the deck I was working on	"openFile(withType(""deck"") and isRecent)"
+replyMailToSender	p1	Reply to Bryan on this email	"replyEmail(messageIdIs(theEmail(`this`[Email]).id) and messageWithTo(""Bryan""))"
+	p0	Schedule a coffee date on 3/4/2018 at 11 am	"createEvent(called(""coffee date"") and createAt(11.am on ((month(3) /& 4) /& yearIs(2018))))"
+createOneonOneWithPersonEyesOff	p1	Schedule a 1:1 with Bryan	"createEvent(isOneOnOne and with_(""Bryan""))"
+testingWeekTOD	p0	Create a meeting with Jenn for next week sometime in afternoon	"createEvent(with_(""Jenn"") and createAt(afternoon on (next[Interval[Date]] and isWeek)))"
+d31annotator2_2	decomp	Get the end time from event s1	s1.end.local.time
+Create with salient datetime	p0	Create a meeting with David then.	"createEvent(createAt(that[Instant]) and with_(""David""))"
+createWithDateTimeWithAttendee1EyesOff	p0	Make an event for next Tuesday at 10 am with Jesse	"createEvent(createAt(10.am on (next[Date] /& Tuesday)) and with_(""Jesse""))"
+createEventAfterTimeIntervalOnDate	p1	Schedule a meeting after tomorrow morning	createEvent(createAt(after(morning) on tomorrow))
+queryBySubjectEyesOff	p0	What's on my schedule titled focus time?	"findEvents(called(""focus time""))"
+Create MM-DD	p0	Create a meeting on 5/30	createEvent(createAt(month(5) /& 30))
+eventAttendeesByNext	p2	Who's my next meeting with?	theEvent(next[Event]).attendees.all
+createRecurringYearly	p3	Make a yearly event starting tomorrow.	createEvent(recurringAbsoluteYearly and startsAt(tomorrow))
+forwardMailWithNewTitle	p1	Forward this email and call it Sharing for visibility	"forwardEmail(messageIdIs(theEmail(`this`[Email]).id) and messageTitleIs(""Sharing for visibility""))"
+queryBySubject2	p0	Search for Book Review	"findEvents(called(""Book Review""))"
+basicUnreadMail	p1	Mark this email unread.	unreadEmail(messageIdIs(theEmail(`this`[Email]).id))
+clobberCreateWithRecurrence	p3	Create a meeting with David.	"createEvent(with_(""David""))"
+eventwithSubjectAndDate2	p0	Do I have a planning meeting today?	"findEvents(called(""planning meeting"") and queryAt(today)).nonEmpty"
+eventWithAttendeeDayQuery	p0	What do I have with Jesse on Sunday?	"findEvents(with_(""Jesse"") and queryAt(Sunday))"
+Create - change time	p0	Schedule a meeting with Jesse at 2pm	"createEvent(with_(""Jesse"") and createAt(2.pm))"
+sendMailWithMultipleRecipients	p0	Send an email to Jen and David.	"createEmail(messageWithTo(""Jen"") and messageWithTo(""David""))"
+callingPersonWorkOneshot	p1	Call Damon on his work	"call(callWithType(""Damon"", ContactType.Business))"
+videoCallNumberOneshot	p1	Video call to 55534567	"call(modeIs(CallMode.Video) and callWithNumber(""55534567""))"
+createWithDateWithDuration0EyesOff	p0	Make an event for tomorrow for half an hour	createEvent(createAt(tomorrow) and lastsFor((1 / 2).hours))
+Create with explicit start and duration in eyesoff	p1	Create a 45 minutes meeting that starts tomorrow at 3 pm	createEvent(startsAt(3.pm on tomorrow) and lastsFor(45.minutes))
+sendMailWithRecipientAndBody	p0	Send an email saying I will be late and send to David.	"createEmail(messageBodyIs(""I will be late"") and messageWithTo(""David""))"
+chatOnTMSalientHistoryContactOneShot	p1	Who is Bryan?	"thePerson(""Bryan"")"
+joinNextMeeting	p1	Join my next event	joinEvent(theEvent(next[Event]))
+queryBySubject2	p0	Look for earnings call	"findEvents(called(""earnings call""))"
+createEvent - brunchTime	p1	Schedule a meeting at brunch	createEvent(createAt(brunchTime))
+Create with time and time zone	p1	Schedule a meeting at 9 am UTC	"createEvent(createAt(9.am inZone TimeZone(""UTC"")))"
+eventByDayAndTimeOfDay	p0	What do I have Wednesday afternoon?	findEvents(queryAt(afternoon on Wednesday))
+ScheduleTeamSync4	p0	Schedule a Team Sync on May 8 at noon	"createEvent(called(""Team Sync"") and createAt(noon on (May /& 8)))"
+	p0	Schedule a walk at vasona park at 5pm tomorrow	"createEvent(called(""walk"") and locatedAt(locationNamed(""vasona park"")) and createAt(5.pm on tomorrow))"
+forwardMailToManager	p1	Forward this email to my manager	forwardEmail(messageIdIs(theEmail(`this`[Email]).id) and messageWithTo(me.manager))
+checkAvailability right after the meeting with subject - free	p3	Am I free right after product stand up tomorrow?	"availabilityIncludingMe(rightAfter(theEvent(called(""product stand up"") and queryAt(tomorrow)))).nonEmpty"
+FilterAllDayEvent	p0	What events do I have?	findEvents0
+composeEmailForNextEvent	p0	Start an email to attendees of that event	createEmail(messageWithTo(theEvent(that[Event]).attendees.all))
+eventByDayAndTimeOfDay	p0	What do I have at night on March 27th?	findEvents(queryAt(night on (March /& 27)))
+Create - change the duration	p0	make a meeting for 1 hour	createEvent(lastsFor(1.hours))
+findEmail-7	p1	Can you find the email from Lisa from last week	"theEmail(messageWithSender(""Lisa"") and messageSentAt(last[Interval[Date]] and isWeek))"
+Query - change the subject	p1	what are my workout?	"findEvents(called(""workout""))"
+createMeetingNextWeek	p0	Book some time for jogging with Jenn for next week for 2 hours	"createEvent(called(""jogging"") and with_(""Jenn"") and createAt(next[Interval[Date]] and isWeek) and lastsFor(2.hours))"
+multipleEventsEnd1		When does Planning end?	"theEvent(called(""Planning"")).end"
+1 Create with start date time and duration Eyes-off	p0	Schedule a 1 hour meeting starting today at 2 pm	createEvent(lastsFor(1.hours) and startsAt(2.pm on today))
+queryBySubjectEyesOff	p0	What's on my calendar called peer review?	"findEvents(called(""peer review""))"
+Query ending at date time	p0	Do I have anything scheduled ending at 5pm tomorrow?	findEvents(endsAt(5.pm on tomorrow)).nonEmpty
+createRecurringMonthly2	p3	Add a meeting on 2nd Wednesday of every month.	createEvent(recurringRelativeMonthly(WeekIndex.Second) and createAt(Wednesday))
+createBlockingDateInterval	p0	Block off August 9 to August 11.	createEvent(blocking(dateInterval((August /& 9), (August /& 11))))
+createStartDateTimePersonEyesOff	p2	Make me an event that starts 2 weeks from today at 8 am with John	"createEvent(startsAt(8.am on (today + 2.weeks)) and with_(""John""))"
+jobTitleIsExample2		"Who has the ""shift manager"" job title?"	"thePerson(jobTitleIs(""shift manager""))"
+createSalientTimeOfDayPersonEyesOff	p2	Make an event on that afternoon with Leah	"createEvent(createAt(afternoon on theDate(that[Date])) and with_(""Leah""))"
+createEvent - ends late afternoon	p1	Schedule a meeting that ends late in the afternoon	createEvent(endsAt(late(afternoon)))
+d31annotator2_6	decomp	Set meeting time of event s1 with the start time as s5 and end time as s6	modifyEvent(s1, startsAt(s5) and endsAt(s6))
